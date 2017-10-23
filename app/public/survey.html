@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Find your 'friend' by showing your temperature of agreement or disagreement with some statements">
+  <meta name="author" content="Kelly Wenzel">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Friend Finder - Survey</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">And your best match is...</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id='friendName'></p>
+          <img id='friendImg' src="" height='200'>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Survey Statements</h1> 
+    <hr>
+    <h3>So, tell me about yourself...</h3>
+    <div class="form-group">
+      <label for="Name">Name (Required)</label>
+      <input type="text" class='form-control' id='name' placeholder="Jack the Ripper">
+    </div>
+    <div class="form-group">
+      <label for="image">Link to Photo (Required)</label>
+      <input type="text" class='form-control' id='image' placeholder="https://www.hdwallpapers.in/walls/jack_the_ripper-HD.jpg">
+    </div>
+    <hr>
+    <h3>Statement 1</h3>
+    <h4>I am almost always the smartest person in the room.</h4>
+    <div class="form-group">
+      <select name="statement1" id="statement1">
+        <option value="">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <h3>Statement 2</h3>
+    <h4>I require constant attention.</h4>
+    <div class="form-group">
+      <select name="statement2" id="statement2">
+        <option value="">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <h3>Statement 3</h3>
+    <h4>I am completely disease free.</h4>
+    <div class="form-group">
+      <select name="statement3" id="statement3">
+        <option value="">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <h3>Statement 4</h3>
+    <h4>I cannot date someone who is bad in bed.</h4>
+    <div class="form-group">
+      <select name="statement4" id="statement4">
+        <option value="">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <h3>Statement 5</h3>
+    <h4>A college education is the most important thing about the person I will meet on this site.</h4>
+    <div class="form-group">
+      <select name="statement5" id="statement5">
+        <option value="">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <h3>Statement 6</h3>
+        <h4>My religion is the most important thing to me.</h4>
+        <div class="form-group">
+          <select name="statement6" id="statement6">
+            <option value="">Select an Option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <h3>Statement 7</h3>
+        <h4>Getting married and settling down is my main purpose from being on this site.</h4>
+        <div class="form-group">
+          <select name="statement7" id="statement7">
+            <option value="">Select an Option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <h3>Statement 8</h3>
+        <h4>I only date within my race.</h4>
+        <div class="form-group">
+          <select name="statement8" id="statement8">
+            <option value="">Select an Option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <h3>Statement 9</h3>
+        <h4>The glass is half empty.</h4>
+        <div class="form-group">
+          <select name="statement9" id="statement9">
+            <option value="">Select an Option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <h3>Statement 10</h3>
+        <h4>I believe we are only capable of having one soul mate in our entire lives.</h4>
+        <div class="form-group">
+          <select name="statement10" id="statement10">
+            <option value="">Select an Option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+
+    <div class="btn btn-primary btn-block" id="submit"><h4><span class="glyphicon glyphicon-heart"></span> Find a friend</h4></div>
+    <hr>
+    <div>
+      <a href="/api/friends">API Friends List</a>
+      <span>|</span>
+      <a href="https://github.com/kelbowelbo/FriendFinder" target="_blank">Kelbo's Github</a>
+    </div>
+    <br>
+  </div>
+
+<script type="text/javascript">
+
+  let newUser = {};
+  let optMatch = {
+    diff: 100,
+    name: "",
+    image: ""
+  };
+
+
+    $('#submit').on('click', () => {
+      let userName = $('#name').val().trim();
+      let pic = $('#image').val().trim();
+      let ans1 = $('#statement1').val().trim();
+      let ans2 = $('#statement2').val().trim();
+      let ans3 = $('#statement3').val().trim();
+      let ans4 = $('#statement4').val().trim();
+      let ans5 = $('#statement5').val().trim();
+      let ans6 = $('#statement6').val().trim();
+      let ans7 = $('#statement7').val().trim();
+      let ans8 = $('#statement8').val().trim();
+      let ans9 = $('#statement9').val().trim();
+      let ans10 = $('#statement10').val().trim();
+
+      if (userName === "" || pic === "" || ans1 === "" || ans2 === "" || ans3 === "" || ans4 === "" || ans5 === "" || ans6 === "" || ans7 === "" || ans8 === "" || ans9 === "" || ans10 === "" ) {
+        alert("Please fill in all fields"); 
+
+      } else {
+        newUser = {
+          name: userName,
+          photo: pic,
+          scores: [ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8, ans9, ans10]
+        };
+
+        findFriend(newUser.scores);
+
+        function postData() {
+          $.post({url: '/api/friends', contentType: 'application/json'}, JSON.stringify(newUser));
+        }
+
+        $('#name').val("");
+        $('#image').val("");
+        $('#statement1').val("");
+        $('#statement2').val("");
+        $('#statement3').val("");
+        $('#statement4').val("");
+        $('#statement5').val("");
+        $('#statement6').val("");
+        $('#statement7').val("");
+        $('#statement8').val("");
+        $('#statement9').val("");
+        $('#statement10').val("");
+      }
+    });
+
+
+    function findFriend(scores) {
+
+      $.get('/api/friends', (friends) => {
+
+        let count = 0;
+        let arrayLength = friends.length;
+
+        for (var i = 0; i < arrayLength; i++) {
+          calcScoreDiff(scores, friends[i]);
+          count++;    
+        }   
+
+        if (count === arrayLength) {
+          $('#friendName').text(optMatch.name);
+          $('#friendImg').attr('src', optMatch.image);
+          $('#myModal').modal('toggle');
+        }
+      }); 
+    }
+
+
+    function calcScoreDiff(user, friend) {
+
+      let diff = 0;
+      let count = 0;
+
+      for (var i = 0; i < 5; i++) {
+        diff += Math.abs(user[i] - friend.scores[i]);
+        count++;
+      }
+
+      if (count === 5) {
+        if (diff < optMatch.diff) {
+          optMatch.diff = diff;
+          optMatch.name = friend.name;
+          optMatch.image = friend.photo;
+        } else {
+          return;
+        }
+      }   
+}
+</script>
+</body>
+</html
